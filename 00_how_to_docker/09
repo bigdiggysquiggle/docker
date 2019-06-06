@@ -1,3 +1,2 @@
-docker run -it debian
-# apt-get update
-# apt-get install vim gcc git
+apt-get update -y
+apt-get install vim gcc git -y
