@@ -1,1 +1,2 @@
 docker run -it alpine
+docker ps
