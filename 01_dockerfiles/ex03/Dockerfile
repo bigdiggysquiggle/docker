@@ -1,9 +1,15 @@
 FROM debian:9
 
-RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y curl openssh-server ca-certificates
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils && apt-get upgrade
+RUN apt-get install -y wget openssh-server ca-certificates
 RUN apt-get install -y postfix
-RUN curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
+RUN wget https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
 RUN chmod 777 script.deb.sh
 RUN ./script.deb.sh
-RUN apt-get install -y gitlab-ce
+RUN apt-get update && apt-get install -y gitlab-ce
+
+EXPOSE 443 80 22
+
+ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && gitlab-ctl reconfigure && tail -f /dev/null
