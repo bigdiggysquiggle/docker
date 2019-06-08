@@ -1,5 +1,9 @@
 FROM debian
 
+ENV TS3SERVER_LICENSE=accept
+
+WORKDIR /home/teamspeak
+
 EXPOSE 9987/udp 10011 30033
 
 RUN apt-get update -y && apt-get upgrade -y
