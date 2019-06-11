@@ -13,3 +13,5 @@ RUN apt-get update && apt-get install -y gitlab-ce
 EXPOSE 443 80 22
 
 ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && gitlab-ctl reconfigure && tail -f /dev/null
+
+#docker run -it --rm -p 8080:80 -p 8022:22 -p 8443:443 --privileged ex03
