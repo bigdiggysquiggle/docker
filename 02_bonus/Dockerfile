@@ -1,3 +1,5 @@
+#NOTE: must provide your own DOOM.WAD
+
 FROM archlinux/base
 
 COPY DOOM.WAD /usr/share/doom.wad
