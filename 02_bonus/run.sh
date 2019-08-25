@@ -1,3 +1,6 @@
+#!/bin/bash
+#not sure if this script actually works. mostly here as a note of the commands to use
+
 if ($OSTYPE == 'linux-gnu'); then
 	eval $(docker-machine env default)
 	docker run --privileged -it --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" doom
