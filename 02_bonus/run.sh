@@ -1,5 +1,5 @@
 #!/bin/bash
-#not sure if this script actually works. mostly here as a note of the commands to use
+#currently doesn't properly run the container when ran as a script. commands work when copied out and ran on their own. this is due to the XDG_RUNTIME_DIR not being properly set in the subshell. will play with this later.
 
 if ($OSTYPE == 'linux-gnu'); then
 	eval $(docker-machine env default)
