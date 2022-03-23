@@ -1,0 +1,2 @@
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [container name or ID]
+--gets the ip address of the given container
