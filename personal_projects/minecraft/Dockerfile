@@ -3,8 +3,8 @@ FROM debian
 VOLUME ["/minecraft"]
 WORKDIR /minecraft
 
-COPY server.jar /minecraft/server.jar
-COPY eula.txt /minecraft/eula.txt
+#COPY server.jar /minecraft/server.jar
+#COPY eula.txt /minecraft/eula.txt
 
 EXPOSE 25565
 
