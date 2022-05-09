@@ -17,13 +17,12 @@ it run DOOM. Along with being privileged, the container also needs to have the $
 its internal environment to match our machine's $DISPLAY variable and it also needs access to a valid
 .Xauthority file because X11 is insistent that the ability to display on a screen should be inherently
 tied to the presence of a secret file. As such we give the container access to our machine's .Xauthority
-by way of the --volume flag. 
+by way of the --volume flag.
 
-The last challenge I'm still trying to solve is how subshells inherit their environment from parent
-shells. Specifically, how information about the hardware like the contents of $DISPLAY are set. This
-is why the run.sh script doesn't actually function properly, the subshell the script gets run in when
-invoked the normal way doesn't actually have information about the display hardware available to it. The
-laziest way to get around this would be to use "dot space dot" syntax to execute the script within the
-current shell instead of from a subshell. I don't like that though because how many end users are likely
-to not even read the documentation and get upset when the script doesn't work. I'd rather find a solution
-where this information becomes available to the subshell the script is being run in.
+The final hurdle major I need to overcome came about while updating this Dockerfile. Upon running DOOM
+after rebuilding the image with all the new updates, it crashed with a segfault. The segfault turned out
+to be due to the arch base image not having pulseaudio installed and chocolate-doom not listing it as a
+dependcy. After solving the segfault, however, DOOM still wasn't running properly. The window for the
+game would open, then close shortly after without ever displaying anything. This turned out to be due
+to xorg-server not being listed as a dependency for chocolate doom either. After installing both of these
+packages, DOOM finally ran

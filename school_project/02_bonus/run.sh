@@ -1,8 +1,10 @@
 #!/bin/bash
-#currently doesn't properly run the container when ran as a script. commands work when copied out and ran on their own. this is due to the XDG_RUNTIME_DIR not being properly set in the subshell. will play with this later.
+
+#I have not verified that the mac half of this script
+#works properly as I do not have a mac on hand anymore
+#to test with
 
 if [ $OSTYPE == 'linux-gnu' ]; then
-#	eval $(docker-machine env default)
 	docker run --privileged -it --rm --net=host --env DISPLAY=unix$DISPLAY --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --volume /tmp/.X11-unix:/tmp/.X11-unix doom
 else
 	IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
