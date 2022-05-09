@@ -1,0 +1,3 @@
+[submodule "school_project/02_bonus"]
+	path = school_project/02_bonus
+	url = git@github.com:bigdiggysquiggle/doomd.git
