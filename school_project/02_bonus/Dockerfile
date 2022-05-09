@@ -13,4 +13,4 @@ RUN pacman -Syu --noconfirm git sudo binutils file patch gcc pkg-config awk make
 	cd /builds/chocolate-doom; \
 	sudo -u build makepkg -si --noconfirm --skippgpcheck
 
-ENTRYPOINT /builds/chocolate-doom -iwad /usr/share/doom.wad -window
+ENTRYPOINT chocolate-doom -iwad /usr/share/doom.wad -window
