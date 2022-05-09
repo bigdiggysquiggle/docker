@@ -19,7 +19,7 @@ its internal environment to match our machine's $DISPLAY variable and it also ne
 tied to the presence of a secret file. As such we give the container access to our machine's .Xauthority
 by way of the --volume flag.
 
-The final hurdle major I need to overcome came about while updating this Dockerfile. Upon running DOOM
+The final hurdle major I needed to overcome came about while updating this Dockerfile. Upon running DOOM
 after rebuilding the image with all the new updates, it crashed with a segfault. The segfault turned out
 to be due to the arch base image not having pulseaudio installed and chocolate-doom not listing it as a
 dependcy. After solving the segfault, however, DOOM still wasn't running properly. The window for the
