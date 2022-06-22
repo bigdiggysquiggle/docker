@@ -17,5 +17,5 @@ CMD curl --output server.jar https://launcher.mojang.com/v1/objects/e00c4052dac1
 
 # -p [port]:[port]/[protocol]
 
-# docker build -t minecraft-web
-# docker run --rm --name minecraft-web -p 25565:25565 -v $HOME/worlds minecraft
+# docker build -t minecraft-web .
+# docker run --rm --name minecraft-web -p 25565:25565 -v $HOME/worlds minecraft-web
