@@ -3,4 +3,6 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [con
 
 docker wants hosts to be set to 0.0.0.0 for containers to be accessible
 
+Docker, by default, added 0.0. 0.0 non-routable meta-address for the host. It means that the mapping is valid for all addresses/interfaces of the host.
+
 https://www.baeldung.com/ops/docker/expose-vs-publish#:~:text=Docker%2C%20by%20default%2C%20added%200.0,addresses%2Finterfaces%20of%20the%20host.
