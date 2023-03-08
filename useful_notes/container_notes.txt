@@ -1,2 +1,6 @@
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [container name or ID]
 --gets the ip address of the given container
+
+docker wants hosts to be set to 0.0.0.0 for containers to be accessible
+
+https://www.baeldung.com/ops/docker/expose-vs-publish#:~:text=Docker%2C%20by%20default%2C%20added%200.0,addresses%2Finterfaces%20of%20the%20host.
